@@ -41,7 +41,7 @@ aws_access_key_id = ${AWS_ACCESS_KEY_ID}
 aws_secret_access_key = ${AWS_SECRET_ACCESS_KEY}" > ~/.aws/credentials
 
 echo "Change directory to Source"
-cd $SOURCE_DIR/website
+cd website
 
 echo "Install yarn"
 npm install -g yarn
@@ -50,13 +50,10 @@ echo "Install dependencies"
 npm install
 
 echo "Run yarn build"
-cd website
 yarn run build
 
-if [ -d "$DIST_DIR" ]; then
-    echo "Copying to website folder"
-    aws s3 sync ${DIST_DIR}/build s3://${AWS_S3_BUCKET} --exact-timestamps --delete --region ${AWS_DEFAULT_REGION} $*
-fi
+echo "Copying to website folder"
+aws s3 sync ./build s3://${AWS_S3_BUCKET} --exact-timestamps --delete --region ${AWS_DEFAULT_REGION} $*
 
 echo "Cleaning up things"
 
