@@ -1,6 +1,6 @@
 FROM python:3.6-alpine
 
-LABEL version="0.1.10"
+LABEL version="1.0.0"
 
 # https://github.com/aws/aws-cli/blob/master/CHANGELOG.rst
 ENV AWSCLI_VERSION='1.17.12'
