@@ -47,7 +47,7 @@ echo "Install yarn"
 npm install -g yarn
 
 echo "Install dependencies"
-npm install
+yarn install
 
 echo "Run yarn build"
 yarn run build
