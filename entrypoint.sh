@@ -46,7 +46,8 @@ cd $SOURCE_DIR
 echo "Install yarn"
 npm install -g yarn
 
-echo "Run npx"
+echo "Run yarn build"
+cd website
 yarn run build
 
 if [ -d "$DIST_DIR" ]; then
