@@ -7,7 +7,7 @@ ENV AWSCLI_VERSION='1.17.12'
 RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 
 RUN apt-get --update dh-autoreconf
-RUN at-get --update nodejs npm
+RUN apt-get --update nodejs npm
 RUN apt-get --update npm
 
 ADD entrypoint.sh /entrypoint.sh
