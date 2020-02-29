@@ -46,6 +46,9 @@ cd $SOURCE_DIR
 echo "Install yarn"
 npm install -g yarn
 
+echo "Install dependencies"
+npm install
+
 echo "Run yarn build"
 cd website
 yarn run build
