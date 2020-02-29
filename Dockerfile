@@ -1,12 +1,13 @@
-FROM node:12.11.1-slim
+FROM python:3.6-alpine
 
-LABEL version="0.1.0"
+LABEL version="0.1.10"
 
-RUN npm i python
 # https://github.com/aws/aws-cli/blob/master/CHANGELOG.rst
 ENV AWSCLI_VERSION='1.17.12'
-RUN python -m pip install awscli=${AWSCLI_VERSION}
+RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 
+RUN apk add --update nodejs npm
+RUN apk add --update npm
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
