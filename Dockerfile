@@ -1,4 +1,4 @@
-FROM python:3.6-alpine
+FROM debian:stable
 
 LABEL version="0.1.0"
 
@@ -6,9 +6,9 @@ LABEL version="0.1.0"
 ENV AWSCLI_VERSION='1.17.12'
 RUN pip install --quiet --no-cache-dir awscli==${AWSCLI_VERSION}
 
-RUN apk add --update dh-autoreconf
-RUN apk add --update nodejs npm
-RUN apk add --update npm
+RUN apt-get --update dh-autoreconf
+RUN at-get --update nodejs npm
+RUN apt-get --update npm
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
