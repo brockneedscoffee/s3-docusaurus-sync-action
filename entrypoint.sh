@@ -23,11 +23,6 @@ if [ -z "$AWS_DEFAULT_REGION" ]; then
 fi
 
 
-if [ -z "$PROJECT_NAME" ]; then
-  echo "PROJECT_NAME is not set. Quitting."
-  exit 1
-fi
-
 
 mkdir -p ~/.aws
 touch ~/.aws/credentials
